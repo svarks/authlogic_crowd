@@ -131,7 +131,7 @@ module AuthlogicCrowd
       def validate_by_crowd
         begin
         load_crowd_app_token
-        login = send(login_field) || unauthorized_record.andand.login
+        login = send(login_field) || unauthorized_record.login
         password = send("protected_#{password_field}")
         params_user_token = controller.params["crowd.token_key"]
         session_user_token = controller.session[:"crowd.token_key"]
